@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - BentoGo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span class="logo-icon">🍱</span>
+                    <span class="logo-text">BentoGo</span>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link active">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+                <li><a href="admin.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== MENU PAGE HEADER ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Explore Our Full Menu</h1>
+            <p>Discover authentic Asian flavors from 5 countries</p>
+        </div>
+    </section>
+
+    <!-- ==================== FILTERS & SEARCH ==================== -->
+    <section class="menu-controls">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search menu items..." class="search-input">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="filters-section">
+                <div class="filter-group">
+                    <h4>Country</h4>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterByCountry('all')">All</button>
+                        <button class="filter-btn" data-filter="taiwan" onclick="filterByCountry('taiwan')">🇹🇼 Taiwan</button>
+                        <button class="filter-btn" data-filter="philippines" onclick="filterByCountry('philippines')">🇵🇭 Philippines</button>
+                        <button class="filter-btn" data-filter="japan" onclick="filterByCountry('japan')">🇯🇵 Japan</button>
+                        <button class="filter-btn" data-filter="korea" onclick="filterByCountry('korea')">🇰🇷 Korea</button>
+                        <button class="filter-btn" data-filter="thailand" onclick="filterByCountry('thailand')">🇹🇭 Thailand</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Category</h4>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterByCategory('all')">All</button>
+                        <button class="filter-btn" data-filter="main" onclick="filterByCategory('main')">Main Dishes</button>
+                        <button class="filter-btn" data-filter="drinks" onclick="filterByCategory('drinks')">Drinks</button>
+                        <button class="filter-btn" data-filter="sides" onclick="filterByCategory('sides')">Sides & Desserts</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Sort by Price</h4>
+                    <div class="sort-buttons">
+                        <button class="filter-btn" onclick="sortByPrice('asc')">Low to High</button>
+                        <button class="filter-btn" onclick="sortByPrice('desc')">High to Low</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MENU GRID ==================== -->
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-grid" id="menuGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EMPTY STATE ==================== -->
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="container">
+            <p>No items found. Try adjusting your filters.</p>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>BentoGo</h4>
+                <p>Fast Asian Flavors Across Asia</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: hello@bentogo.com</li>
+                    <li>Phone: +63 2 8888 BENTO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BentoGo. All rights reserved. Premium Asian Fast Food.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

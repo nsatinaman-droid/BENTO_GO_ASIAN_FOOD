@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BentoGo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-page">
+    <!-- ==================== ADMIN NAVBAR ==================== -->
+    <nav class="admin-navbar">
+        <div class="admin-navbar-content">
+            <div class="admin-logo">
+                <span class="logo-icon">🍱</span>
+                <span class="logo-text">BentoGo Admin</span>
+            </div>
+            <div class="admin-user">
+                <span class="user-name">Admin User</span>
+                <button onclick="logout()" class="btn btn-sm">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-layout">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li><a href="#dashboard" class="admin-menu-item active" onclick="showDashboard()">📊 Dashboard</a></li>
+                <li><a href="#products" class="admin-menu-item" onclick="showProducts()">🍜 Manage Products</a></li>
+                <li><a href="#orders" class="admin-menu-item" onclick="showOrders()">📦 Orders</a></li>
+                <li><a href="#customers" class="admin-menu-item" onclick="showCustomers()">👥 Customers</a></li>
+                <li><a href="#settings" class="admin-menu-item" onclick="showSettings()">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="admin-content">
+            <!-- ==================== DASHBOARD VIEW ==================== -->
+            <section id="dashboard" class="admin-section active">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's your business overview.</p>
+                </div>
+
+                <!-- KPI CARDS -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🍱</div>
+                        <div class="kpi-content">
+                            <h3>Total Products</h3>
+                            <p class="kpi-value" id="kpiProducts">30</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">📦</div>
+                        <div class="kpi-content">
+                            <h3>Total Orders</h3>
+                            <p class="kpi-value" id="kpiOrders">248</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-content">
+                            <h3>Total Revenue</h3>
+                            <p class="kpi-value" id="kpiRevenue">₱12,450</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">⚠️</div>
+                        <div class="kpi-content">
+                            <h3>Low Stock</h3>
+                            <p class="kpi-value" id="kpiLowStock">3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SALES CHART -->
+                <div class="chart-container">
+                    <h2>Sales Overview</h2>
+                    <div class="chart-placeholder">
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height: 60%"></div>
+                            <div class="chart-bar" style="height: 75%"></div>
+                            <div class="chart-bar" style="height: 85%"></div>
+                            <div class="chart-bar" style="height: 70%"></div>
+                            <div class="chart-bar" style="height: 90%"></div>
+                            <div class="chart-bar" style="height: 65%"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT SALES -->
+                <div class="table-container">
+                    <h2>Recent Sales</h2>
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Product</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD001</td>
+                                <td>Maria Santos</td>
+                                <td>Beef Noodle Bowl</td>
+                                <td>₱165</td>
+                                <td>2024-04-15</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD002</td>
+                                <td>John Doe</td>
+                                <td>Chicken Katsu Curry</td>
+                                <td>₱179</td>
+                                <td>2024-04-15</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD003</td>
+                                <td>Lisa Wong</td>
+                                <td>Korean Fried Chicken Rice</td>
+                                <td>₱189</td>
+                                <td>2024-04-14</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD004</td>
+                                <td>Kenji Tanaka</td>
+                                <td>Pad Thai Chicken</td>
+                                <td>₱165</td>
+                                <td>2024-04-14</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== PRODUCTS VIEW ==================== -->
+            <section id="products" class="admin-section">
+                <div class="section-header">
+                    <h1>Manage Products</h1>
+                    <button class="btn btn-primary" onclick="addNewProduct()">+ Add Product</button>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Country</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr>
+                                <td>Beef Noodle Bowl</td>
+                                <td>Taiwan</td>
+                                <td>Main</td>
+                                <td>₱165</td>
+                                <td><span class="stock-good">45</span></td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editProduct(1)">✏️</button>
+                                    <button class="btn-action delete" onclick="deleteProduct(1)">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chicken Adobo Bowl</td>
+                                <td>Philippines</td>
+                                <td>Main</td>
+                                <td>₱149</td>
+                                <td><span class="stock-good">52</span></td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editProduct(2)">✏️</button>
+                                    <button class="btn-action delete" onclick="deleteProduct(2)">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bubble Milk Tea</td>
+                                <td>Taiwan</td>
+                                <td>Drinks</td>
+                                <td>₱65</td>
+                                <td><span class="stock-low">8</span></td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editProduct(3)">✏️</button>
+                                    <button class="btn-action delete" onclick="deleteProduct(3)">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kimchi Pork Bowl</td>
+                                <td>Korea</td>
+                                <td>Main</td>
+                                <td>₱169</td>
+                                <td><span class="stock-low">5</span></td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editProduct(4)">✏️</button>
+                                    <button class="btn-action delete" onclick="deleteProduct(4)">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== ORDERS VIEW ==================== -->
+            <section id="orders" class="admin-section">
+                <div class="section-header">
+                    <h1>Orders</h1>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD001</td>
+                                <td>Maria Santos</td>
+                                <td>2</td>
+                                <td>₱340</td>
+                                <td>2024-04-15</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><button class="btn-action" onclick="viewOrder(1)">👁️</button></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD002</td>
+                                <td>John Doe</td>
+                                <td>1</td>
+                                <td>₱179</td>
+                                <td>2024-04-15</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td><button class="btn-action" onclick="viewOrder(2)">👁️</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== CUSTOMERS VIEW ==================== -->
+            <section id="customers" class="admin-section">
+                <div class="section-header">
+                    <h1>Customers</h1>
+                </div>
+
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>maria@email.com</td>
+                                <td>12</td>
+                                <td>₱2,845</td>
+                                <td>2024-01-10</td>
+                                <td><button class="btn-action" onclick="viewCustomer(1)">👁️</button></td>
+                            </tr>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>john@email.com</td>
+                                <td>8</td>
+                                <td>₱1,920</td>
+                                <td>2024-02-05</td>
+                                <td><button class="btn-action" onclick="viewCustomer(2)">👁️</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ==================== SETTINGS VIEW ==================== -->
+            <section id="settings" class="admin-section">
+                <div class="section-header">
+                    <h1>Settings</h1>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Store Settings</h3>
+                    <div class="form-group">
+                        <label>Store Name</label>
+                        <input type="text" value="BentoGo" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Fee</label>
+                        <input type="number" value="50" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Tax Rate (%)</label>
+                        <input type="number" value="5" class="form-input">
+                    </div>
+                    <button class="btn btn-primary">Save Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

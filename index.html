@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BentoGo - Fast Asian Flavors Across Asia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span class="logo-icon">🍱</span>
+                    <span class="logo-text">BentoGo</span>
+                </div>
+            </div>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+                <li><a href="admin.html" class="nav-link admin-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Fast Asian Flavors</h1>
+            <p class="hero-subtitle">Across Asia</p>
+            <p class="hero-description">Experience authentic, premium Asian cuisine delivered fast</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn btn-primary">Explore Menu</a>
+                <a href="#featured" class="btn btn-secondary">See Featured</a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="hero-image">🍜</div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose BentoGo?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Quick service without compromising quality</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌏</div>
+                    <h3>Authentic Asian</h3>
+                    <p>Premium recipes from across Asia</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Fresh ingredients, expert preparation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Easy Checkout</h3>
+                    <p>Secure and convenient payment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED PRODUCTS ==================== -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Favorites</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #c41e3a 0%, #ff6b1a 100%);">
+                        <span class="emoji-icon">🥢</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="country-badge">Taiwan</span>
+                        <h3>Beef Noodle Bowl</h3>
+                        <p class="featured-description">Rich braised beef with hand-pulled noodles</p>
+                        <div class="featured-footer">
+                            <span class="price">₱165</span>
+                            <button class="btn-small" onclick="addToCart(3, 'Beef Noodle Bowl', 165)">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #ff6b1a 0%, #ffd700 100%);">
+                        <span class="emoji-icon">🍗</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="country-badge">Philippines</span>
+                        <h3>Chicken Adobo Bowl</h3>
+                        <p class="featured-description">Tender chicken in savory-sweet sauce</p>
+                        <div class="featured-footer">
+                            <span class="price">₱149</span>
+                            <button class="btn-small" onclick="addToCart(4, 'Chicken Adobo Bowl', 149)">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #2c2c2c 0%, #666 100%);">
+                        <span class="emoji-icon">🍱</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="country-badge">Japan</span>
+                        <h3>Chicken Katsu Curry</h3>
+                        <p class="featured-description">Crispy katsu with golden curry sauce</p>
+                        <div class="featured-footer">
+                            <span class="price">₱179</span>
+                            <button class="btn-small" onclick="addToCart(7, 'Chicken Katsu Curry', 179)">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #c41e3a 0%, #2c2c2c 100%);">
+                        <span class="emoji-icon">🌶️</span>
+                    </div>
+                    <div class="featured-content">
+                        <span class="country-badge">Korea</span>
+                        <h3>Korean Fried Chicken Rice</h3>
+                        <p class="featured-description">Crispy, spicy, perfectly seasoned</p>
+                        <div class="featured-footer">
+                            <span class="price">₱189</span>
+                            <button class="btn-small" onclick="addToCart(11, 'Korean Fried Chicken Rice', 189)">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COUNTRY HIGHLIGHTS ==================== -->
+    <section class="countries-section">
+        <div class="container">
+            <h2 class="section-title">Asian Countries</h2>
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-icon">🇹🇼</div>
+                    <h3>Taiwan</h3>
+                    <p>Signature rice bowls & bubble tea</p>
+                </div>
+                <div class="country-card">
+                    <div class="country-icon">🇵🇭</div>
+                    <h3>Philippines</h3>
+                    <p>Adobo & crispy favorites</p>
+                </div>
+                <div class="country-card">
+                    <div class="country-icon">🇯🇵</div>
+                    <h3>Japan</h3>
+                    <p>Katsu, sushi & curry</p>
+                </div>
+                <div class="country-card">
+                    <div class="country-icon">🇰🇷</div>
+                    <h3>Korea</h3>
+                    <p>Bibimbap & fried chicken</p>
+                </div>
+                <div class="country-card">
+                    <div class="country-icon">🇹🇭</div>
+                    <h3>Thailand</h3>
+                    <p>Pad Thai & curries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The best Asian food experience! Fresh, fast, and authentic."</p>
+                    <p class="author">- Maria Santos</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Premium quality at affordable prices. Highly recommend BentoGo!"</p>
+                    <p class="author">- Kenji Tanaka</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Every dish is made with love. It's my go-to for quality Asian food."</p>
+                    <p class="author">- Lisa Wong</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Join Our Community</h2>
+            <p>Get exclusive deals and updates on new Asian flavors</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>BentoGo</h4>
+                <p>Fast Asian Flavors Across Asia</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: hello@bentogo.com</li>
+                    <li>Phone: +63 2 8888 BENTO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BentoGo. All rights reserved. Premium Asian Fast Food.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
